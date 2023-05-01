@@ -20,15 +20,25 @@ if __name__ == '__main__':
         try:
             umValor = float(input("Informe um valor: "))
             invalido = False
-        except ValueError as e:
+        except ValueError:
             print("O valor informado é inválido!")
 
-    print("Escolha uma operação.")
-    print("1 - Somar")
-    print("2 - Subtrair")
-    print("3 - Multiplicar")
-    print("4 - Dividir")
-    operacao = int(input())
+    invalido = True
+    operacao = None
+    while invalido:
+        print("Escolha uma operação.")
+        print("1 - Somar")
+        print("2 - Subtrair")
+        print("3 - Multiplicar")
+        print("4 - Dividir")
+        try:
+            operacao = int(input())
+            invalido = operacao not in range(1, 5)
+        except ValueError:
+            pass
+
+        if invalido:
+            print("O valor informado é inválido.")
 
     invalido = True
     while (invalido):
