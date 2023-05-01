@@ -6,8 +6,8 @@
 # Garantir que os valores sejam informados e que sejam númericos v0.1.1 [✓]
 # Garantir que uma operação válida seja informada v0.1.2 [✓]
 # Perguntar se deseja continuar calculando ou parar de calcular v0.2.0 [✓]
-# Registrar os resultados
-# Perguntar se deseja imprimir os ultimos resultados ao fechar o programa. v0.3.0
+# Registrar os resultados [✓]
+# Perguntar se deseja imprimir os ultimos resultados ao fechar o programa. v0.3.0 [✓]
 # Transformação em arquivos. v0.4.0
 # Transformação para 'Orientação a Objetos' v1.0.0
 
@@ -15,6 +15,7 @@
 if __name__ == '__main__':
     print('Bem-vindo a nossa maravilhosa calculadora feita em Python!!!')
     continuar = 1  # 1-Sim
+    resultados = []
 
     while continuar == 1:
         invalido = True
@@ -65,7 +66,9 @@ if __name__ == '__main__':
             resultado = umValor / outroValor
             sinal = '/'
 
-        print(f'O resultado de {umValor:.2f} {sinal} {outroValor:.2f} é igual á {resultado:.2f}')
+        resultadoTxt = f'O resultado de {umValor:.2f} {sinal} {outroValor:.2f} é igual á {resultado:.2f}'
+        print(resultadoTxt)
+        resultados.append(resultadoTxt)
 
         invalido = True
         while (invalido):
@@ -74,5 +77,18 @@ if __name__ == '__main__':
                 invalido = continuar not in range(1, 3)
             except ValueError as e:
                 print("O valor informado é inválido!")
+
+    invalido = True
+    imprimir = None
+    while (invalido):
+        try:
+            imprimir = int(input("Deseja imprimir os resultados? (1-Sim,2-Não): "))
+            invalido = imprimir not in range(1, 3)
+        except ValueError as e:
+            print("O valor informado é inválido!")
+
+    if imprimir == 1:
+        for resultado in resultados:
+            print(resultado)
 
     print("Bye Bye!")
