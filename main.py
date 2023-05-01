@@ -15,7 +15,13 @@
 if __name__ == '__main__':
     print('Bem-vindo a nossa maravilhosa calculadora feita em Python!!!')
 
-    umValor = float(input("Informe um valor: "))
+    invalido = True
+    while (invalido):
+        try:
+            umValor = float(input("Informe um valor: "))
+            invalido = False
+        except ValueError as e:
+            print("O valor informado é inválido!")
 
     print("Escolha uma operação.")
     print("1 - Somar")
@@ -24,7 +30,13 @@ if __name__ == '__main__':
     print("4 - Dividir")
     operacao = int(input())
 
-    outroValor = float(input("Informe outro valor: "))
+    invalido = True
+    while (invalido):
+        try:
+            outroValor = float(input("Informe outro valor: "))
+            invalido = False
+        except ValueError as e:
+            print("O valor informado é inválido!")
 
     sinal = None
     resultado = None
