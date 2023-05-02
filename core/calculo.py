@@ -1,18 +1,42 @@
-def calcular(operacao, um_valor, outro_valor):
-    sinal = None
-    resultado = None
+from core.resultado import Resultado
 
-    if operacao == 1:
-        resultado = um_valor + outro_valor
-        sinal = '+'
-    elif operacao == 2:
-        resultado = um_valor - outro_valor
-        sinal = '-'
-    elif operacao == 3:
-        resultado = um_valor * outro_valor
-        sinal = '*'
-    elif operacao == 4:
-        resultado = um_valor / outro_valor
-        sinal = '/'
 
-    return f'O resultado de {um_valor:.2f} {sinal} {outro_valor:.2f} é igual á {resultado:.2f}'
+class Soma:
+    def __init__(self, um_valor, outro_valor):
+        self.__um_valor = um_valor
+        self.__outro_valor = outro_valor
+        self.__resultado = um_valor + outro_valor
+
+    def calcular(self):
+        return Resultado("+", self.__um_valor, self.__outro_valor, self.__resultado)
+
+
+class Subtracao:
+    def __init__(self, um_valor, outro_valor):
+        self.__um_valor = um_valor
+        self.__outro_valor = outro_valor
+        self.__resultado = um_valor - outro_valor
+
+    def calcular(self):
+        return Resultado("-", self.__um_valor, self.__outro_valor, self.__resultado)
+
+
+class Multiplicacao:
+    def __init__(self, um_valor, outro_valor):
+        self.__um_valor = um_valor
+        self.__outro_valor = outro_valor
+        self.__resultado = um_valor * outro_valor
+
+    def calcular(self):
+        return Resultado("*", self.__um_valor, self.__outro_valor, self.__resultado)
+
+
+class Divisao:
+    def __init__(self, um_valor, outro_valor):
+        self.__um_valor = um_valor
+        self.__outro_valor = outro_valor
+        self.__resultado = um_valor / outro_valor
+
+    def calcular(self):
+        return Resultado("/", self.__um_valor, self.__outro_valor, self.__resultado)
+

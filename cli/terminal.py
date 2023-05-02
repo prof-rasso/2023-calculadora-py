@@ -1,3 +1,6 @@
+from core.operacao import Operacao
+
+
 def ler_valor(label):
     invalido = True
     while (invalido):
@@ -32,10 +35,11 @@ def ler_operacao():
         print("2 - Subtrair")
         print("3 - Multiplicar")
         print("4 - Dividir")
+
         try:
-            operacao = int(input())
-            invalido = operacao not in range(1, 5)
-        except ValueError:
+            operacao = Operacao.of(int(input()))
+            invalido = operacao is None
+        except Exception:
             pass
 
         if invalido:

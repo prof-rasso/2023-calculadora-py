@@ -22,8 +22,8 @@ if __name__ == '__main__':
         um_valor = terminal.ler_valor("Informe um valor: ")
         operacao = terminal.ler_operacao()
         outro_valor = terminal.ler_valor("Informe outro valor: ")
-
-        resultadoTxt = calculo.calcular(operacao, um_valor, outro_valor)
+        calculo = operacao.criar_novo_calculo(um_valor, outro_valor)
+        resultadoTxt = calculo.calcular()
         print(resultadoTxt)
 
         resultado.registrar(resultadoTxt)
